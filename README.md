@@ -21,11 +21,6 @@ Each week gets its own `exNN/` folder with the same layout.
 |------|--------|--------|
 | 1 | [ex01](ex01/) | Discrete-time signals: shifting and time reversal with an explicit origin, impulse decomposition, testing systems for linearity and time invariance |
 
-### Week 1 tasks
-
-- **C1: Shift and reverse** (P3, P4): represent a signal as values plus an origin index, then implement `delay` for $x[n-k]$ and `reverse` for $x[-n]$, and plot the results as stem plots.
-- **C2: Impulse decomposition** (P2): rebuild a signal as a sum of scaled, shifted impulses $\sum_k x[k]\,\delta[n-k]$ and check it against the directly defined signal.
-- **C3: Linearity and time invariance** (P6, P10): write numerical tests using random inputs and apply them to $y[n] = u[n]\,s[n]$ (linear, not time-invariant) and $y[n] = u[n] + 1$ (time-invariant, not linear).
 
 ## Setup
 
