@@ -7,9 +7,17 @@ My work on the weekly coding problems for the Signals & Systems course. Each wee
 ```
 Signals-Systems/
 ├── ex01/
-│   ├── 01d_coding.ipynb                 # original exercise notebook
-│   ├── 01d_coding_solutions.ipynb       # reference solutions
-│   └── 01_coding_implementation.ipynb   # my implementation
+│   ├── 01d_coding.ipynb                  # original exercise notebook
+│   ├── 01d_coding_solutions.ipynb        # reference solutions
+│   └── 01_coding_implementation.ipynb    # my implementation
+├── ex02/
+│   ├── 02d_coding.ipynb
+│   ├── 02d_coding_solutions.ipynb
+│   └── 02d_coding_implementation.ipynb
+├── ex03/
+│   ├── 03d_coding.ipynb
+│   ├── 03d_coding_solutions.ipynb
+│   └── 03d_coding_implementation.ipynb
 └── README.md
 ```
 
@@ -20,7 +28,8 @@ Each week gets its own `exNN/` folder with the same layout.
 | Week | Folder | Topics |
 |------|--------|--------|
 | 1 | [ex01](ex01/) | Discrete-time signals: shifting and time reversal with an explicit origin, impulse decomposition, testing systems for linearity and time invariance |
-
+| 2 | [ex02](ex02/) | Convolution from scratch vs. `np.convolve`, step response and causality of FIR systems, BIBO stability via partial sums of \|h[k]\|, single (FIR) vs. feedback (IIR) echo |
+| 3 | [ex03](ex03/) | State-space realizations: simulating $(A,B,C,D)$ and extracting the impulse response, $h[n]=CA^{n-1}B$ with matrices and invariance under a change of state coordinates, linearization of a nonlinear tank around an equilibrium |
 
 ## Setup
 
