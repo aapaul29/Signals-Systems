@@ -18,6 +18,10 @@ Signals-Systems/
 │   ├── 03d_coding.ipynb
 │   ├── 03d_coding_solutions.ipynb
 │   └── 03d_coding_implementation.ipynb
+├── ex04/
+│   ├── 04d_coding.ipynb
+│   ├── 04d_coding_solutions.ipynb
+│   └── 04d_coding_implementation.ipynb
 └── README.md
 ```
 
@@ -30,6 +34,7 @@ Each week gets its own `exNN/` folder with the same layout.
 | 1 | [ex01](ex01/) | Discrete-time signals: shifting and time reversal with an explicit origin, impulse decomposition, testing systems for linearity and time invariance |
 | 2 | [ex02](ex02/) | Convolution from scratch vs. `np.convolve`, step response and causality of FIR systems, BIBO stability via partial sums of \|h[k]\|, single (FIR) vs. feedback (IIR) echo |
 | 3 | [ex03](ex03/) | State-space realizations: simulating $(A,B,C,D)$ and extracting the impulse response, $h[n]=CA^{n-1}B$ with matrices and invariance under a change of state coordinates, linearization of a nonlinear tank around an equilibrium |
+| 4 | [ex04](ex04/) | Discretization: forward Euler vs. exact discretization via the matrix exponential of an augmented matrix, stability of Euler across the step-size threshold $T_s = 2/\|a\|$, reconstruction error of the zero-order hold |
 
 ## Setup
 
