@@ -22,10 +22,16 @@ Signals-Systems/
 │   ├── 04d_coding.ipynb
 │   ├── 04d_coding_solutions.ipynb
 │   └── 04d_coding_implementation.ipynb
+├── ex05/
+│   ├── 05d_coding.ipynb
+│   └── 05d_coding_solutions.ipynb
+├── cheatsheet/
+│   ├── SaS_cheatsheet.tex                # LaTeX source of the exam cheat sheet
+│   └── SaS_cheatsheet.pdf                # compiled cheat sheet
 └── README.md
 ```
 
-Each week gets its own `exNN/` folder with the same layout.
+Each week gets its own `exNN/` folder with the same layout. The implementation notebook is added once I've worked through the week.
 
 ## Weeks
 
@@ -35,6 +41,11 @@ Each week gets its own `exNN/` folder with the same layout.
 | 2 | [ex02](ex02/) | Convolution from scratch vs. `np.convolve`, step response and causality of FIR systems, BIBO stability via partial sums of \|h[k]\|, single (FIR) vs. feedback (IIR) echo |
 | 3 | [ex03](ex03/) | State-space realizations: simulating $(A,B,C,D)$ and extracting the impulse response, $h[n]=CA^{n-1}B$ with matrices and invariance under a change of state coordinates, linearization of a nonlinear tank around an equilibrium |
 | 4 | [ex04](ex04/) | Discretization: forward Euler vs. exact discretization via the matrix exponential of an augmented matrix, stability of Euler across the step-size threshold $T_s = 2/\|a\|$, reconstruction error of the zero-order hold |
+| 5 | [ex05](ex05/) | z-transform: pole-mode correspondence for a conjugate pole pair $r e^{\pm j\theta}$ (designing period and decay of the impulse response), magnitude of $H(z)$ over the complex plane and its peak on the unit circle |
+
+## Cheat sheet
+
+[cheatsheet/](cheatsheet/) holds my exam cheat sheet as LaTeX source and compiled PDF ([SaS_cheatsheet.pdf](cheatsheet/SaS_cheatsheet.pdf)). The front side covers weeks 1–5 (signals, LTI systems, representations, discretization, z-transform); the back side for weeks 6–13 is still to come.
 
 ## Setup
 
