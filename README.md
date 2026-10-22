@@ -25,6 +25,9 @@ Signals-Systems/
 ├── ex05/
 │   ├── 05d_coding.ipynb
 │   └── 05d_coding_solutions.ipynb
+├── ex06/
+│   ├── 06d_coding.ipynb
+│   └── 06d_coding_solutions.ipynb
 ├── cheatsheet/
 │   ├── SaS_cheatsheet.tex                # LaTeX source of the exam cheat sheet
 │   └── SaS_cheatsheet.pdf                # compiled cheat sheet
@@ -42,6 +45,7 @@ Each week gets its own `exNN/` folder with the same layout. The implementation n
 | 3 | [ex03](ex03/) | State-space realizations: simulating $(A,B,C,D)$ and extracting the impulse response, $h[n]=CA^{n-1}B$ with matrices and invariance under a change of state coordinates, linearization of a nonlinear tank around an equilibrium |
 | 4 | [ex04](ex04/) | Discretization: forward Euler vs. exact discretization via the matrix exponential of an augmented matrix, stability of Euler across the step-size threshold $T_s = 2/\|a\|$, reconstruction error of the zero-order hold |
 | 5 | [ex05](ex05/) | z-transform: pole-mode correspondence for a conjugate pole pair $r e^{\pm j\theta}$ (designing period and decay of the impulse response), magnitude of $H(z)$ over the complex plane and its peak on the unit circle |
+| 6 | [ex06](ex06/) | Sampling and aliasing: folding a frequency into $[0, f_s/2]$ and checking it by sampling, building signals from sinusoidal components $(A, \Omega, \varphi)$ and their period, measuring the perceived pitch of a sampled frequency sweep (optional) |
 
 ## Cheat sheet
 
