@@ -31,7 +31,12 @@ Signals-Systems/
 ├── ex07/
 │   ├── 07d_coding.ipynb
 │   └── 07d_coding_solutions.ipynb
-├── Claude outputs/
+├── ex08/
+│   ├── 08d_coding.ipynb
+│   ├── 08d_coding_solutions.ipynb
+│   └── data/
+│       └── bidmc_03_pleth_60s.csv        # 60 s pulse (PPG) recording used in C2
+├── cheatsheet/
 │   ├── SaS_cheatsheet.tex                # LaTeX source of the exam cheat sheet
 │   └── SaS_cheatsheet.pdf                # compiled cheat sheet
 └── README.md
@@ -50,10 +55,11 @@ Each week gets its own `exNN/` folder with the same layout. The implementation n
 | 5 | [ex05](ex05/) | z-transform: pole-mode correspondence for a conjugate pole pair $r e^{\pm j\theta}$ (designing period and decay of the impulse response), magnitude of $H(z)$ over the complex plane and its peak on the unit circle |
 | 6 | [ex06](ex06/) | Sampling and aliasing: folding a frequency into $[0, f_s/2]$ and checking it by sampling, building signals from sinusoidal components $(A, \Omega, \varphi)$ and their period, measuring the perceived pitch of a sampled frequency sweep (optional) |
 | 7 | [ex07](ex07/) | Frequency response: evaluating $H(\Omega) = H(z)\rvert_{z=e^{j\Omega}}$ on a grid with `np.polyval`, linear phase and constant delay of the symmetric FIR filter $h = \{1, 2, 1\}$, transient vs. steady-state sinusoid response of a first-order system (optional) |
+| 8 | [ex08](ex08/) | DFT and FFT: checking hand-computed DFTs with `np.fft`, reading the heart rate off the spectrum of a measured photoplethysmogram (BIDMC dataset), a simplified guitar tuner (optional): fundamental vs. strongest harmonic, bin spacing in cents, zero-padding for precise peak location and why it doesn't improve resolution |
 
 ## Cheat sheet
 
-[Claude outputs/](Claude%20outputs/) holds my exam cheat sheet as LaTeX source and compiled PDF ([SaS_cheatsheet.pdf](Claude%20outputs/SaS_cheatsheet.pdf)). It's two A4 landscape pages of theory only (no worked examples), with one section per week, and currently covers weeks 1–7.
+[cheatsheet/](cheatsheet/) holds my exam cheat sheet as LaTeX source and compiled PDF ([SaS_cheatsheet.pdf](cheatsheet/SaS_cheatsheet.pdf)). It's two A4 landscape pages of theory only (no worked examples), with one section per week, and currently covers weeks 1–9.
 
 ## Setup
 
