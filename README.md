@@ -36,6 +36,13 @@ Signals-Systems/
 │   ├── 08d_coding_solutions.ipynb
 │   └── data/
 │       └── bidmc_03_pleth_60s.csv        # 60 s pulse (PPG) recording used in C2
+├── ex09/
+│   ├── 09d_coding.ipynb
+│   ├── 09d_coding_solutions.ipynb
+│   └── data/
+│       ├── wrist_bike_32hz.csv           # wrist PPG + acceleration while cycling, used in C3
+│       ├── ecg_beats.csv                 # reference heartbeats from the chest ECG
+│       └── README (1).md                 # data source and license (PhysioNet, ODC-By)
 ├── cheatsheet/
 │   ├── SaS_cheatsheet.tex                # LaTeX source of the exam cheat sheet
 │   └── SaS_cheatsheet.pdf                # compiled cheat sheet
@@ -56,6 +63,7 @@ Each week gets its own `exNN/` folder with the same layout. The implementation n
 | 6 | [ex06](ex06/) | Sampling and aliasing: folding a frequency into $[0, f_s/2]$ and checking it by sampling, building signals from sinusoidal components $(A, \Omega, \varphi)$ and their period, measuring the perceived pitch of a sampled frequency sweep (optional) |
 | 7 | [ex07](ex07/) | Frequency response: evaluating $H(\Omega) = H(z)\rvert_{z=e^{j\Omega}}$ on a grid with `np.polyval`, linear phase and constant delay of the symmetric FIR filter $h = \{1, 2, 1\}$, transient vs. steady-state sinusoid response of a first-order system (optional) |
 | 8 | [ex08](ex08/) | DFT and FFT: checking hand-computed DFTs with `np.fft`, reading the heart rate off the spectrum of a measured photoplethysmogram (BIDMC dataset), a simplified guitar tuner (optional): fundamental vs. strongest harmonic, bin spacing in cents, zero-padding for precise peak location and why it doesn't improve resolution |
+| 9 | [ex09](ex09/) | Short-time Fourier transform: an `stft` checked against the hand results, a simplified song identifier (spectrogram, fingerprints from pairs of peaks, matching by votes, the time-frequency trade-off of the window length $N_w$), heart rate during exercise from a wrist PPG spectrogram (optional): pedalling line vs. heartbeat, frequency-range restriction and tracking |
 
 ## Cheat sheet
 
