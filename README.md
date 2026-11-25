@@ -75,10 +75,10 @@ Each week gets its own `exNN/` folder with the same layout. The implementation n
 
 ## Setup
 
-You need Python 3 with NumPy, Matplotlib and Jupyter.
+You need Python 3 with NumPy, SciPy, Matplotlib and Jupyter.
 
 ```bash
-pip install numpy matplotlib jupyter
+pip install numpy scipy matplotlib jupyter
 ```
 
 Open a notebook in VS Code or Jupyter and select a kernel that has these packages installed. Then run the cells from top to bottom. Each task ends with a check cell that prints a "passed" message when the implementation is correct.
