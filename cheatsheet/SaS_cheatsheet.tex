@@ -1,6 +1,6 @@
 % Signals and Systems (ETH Zurich, HS26, Dr. A. Carron) -- exam cheat sheet
 % Format: A4 landscape, 4 columns, ETH-style section bars (after ZF strubma/bmicha).
-% Page 1 = front, page 2 = back. Theory only (no worked examples). Weeks 1-9 so far.
+% Page 1 = front, page 2 = back. Theory only (no worked examples). Weeks 1-10 so far.
 \RequirePackage{fix-cm}
 \documentclass[a4paper,landscape]{article}
 \usepackage[a4paper,landscape,margin=3mm,top=2.8mm,bottom=3mm]{geometry}
@@ -50,7 +50,7 @@
 \setlength{\abovedisplayshortskip}{0.3pt}\setlength{\belowdisplayshortskip}{0.3pt}
 \setlength{\jot}{0.2pt}
 \begin{multicols*}{4}
-{\fontsize{5.2}{5.8}\selectfont Signals \& Systems, ETH HS26 $\cdot$ W1--9 $\cdot$ $u$ input, $y$ output, $s[n]$ unit step, $h$ impulse response\par}
+{\fontsize{5.2}{5.8}\selectfont Signals \& Systems, ETH HS26 $\cdot$ W1--10 $\cdot$ $u$ input, $y$ output, $s[n]$ unit step, $h$ impulse response\par}
 
 % =====================================================================
 \sect{Math Toolbox}
@@ -302,6 +302,40 @@ moving bands + pauses & speech (short window)\\
 constant line at 50\,Hz & power-grid interference
 \end{tabularx}
 \textbf{Procedure:} (1) compute $\Delta t$, $\Delta f$; (2) identify shapes (lines, stripes, diagonals); (3) group lines that start, stop and move \emph{together}: one source; (4) equally spaced group = harmonic stack, $f_0$ = spacing (not the lowest single line; a line can be harmonic of one note and fundamental of another); (5) a line that follows no group (e.g.\ constant 50\,Hz while others move) is another source, even if the others are multiples of it.
+\textbf{Hop \& overlap:} $H<N_w$: each sample lies in $N_w/H$ windows (an impulse lights $N_w/H$ uniformly bright columns); $f_s/H$ DFTs per second; more columns = more computation, \emph{no} better resolution. A column describes an \emph{interval} of $N_w/f_s$ (real-time reading: the last $N_w/f_s$, on avg.\ $N_w/2f_s$ in the past), not an instant. Delay $x[n{-}n_0]$: image shifts right by $n_0/f_s$ (magnitude same).
+\textbf{Window choice from signal change:} sweep rate $r$ [Hz/s]: line width $\approx\Delta f+r\Delta t$, minimal at $\Delta t=1/\sqrt r$ (width $2\sqrt r$). Value may change by at most tolerance within one window. AM tone $(1{+}\cos2\pi f_mt)\cos2\pi f_0t$ = lines $f_0,f_0\pm f_m$: resolved only if $\Delta t\ge1/f_m$.
+\textbf{Hann taper} $w[n]=\frac12(1-\cos\frac{2\pi n}{N_w})$: much lower leakage (weak tones visible) but wider main lobe (3 bins instead of 1). Sweep above $f_s/2$ is reflected (folds) back down. $f$[Hz]$\cdot60$ = bpm.
 \textbf{Song identification} (Shazam): fingerprint = strongest local peaks of the spectrogram; robust to noise.
+
+\sect{W10 \ Filter Specification}
+\textbf{Steps:} (1) components \& their bands (from spectrum/spectrogram); (2) keep (passband) or remove (stopband); (3) shape: LP, HP, BP, BS, notch, or several in series; (4) band edges: passbands around kept, stopbands around removed components, transition bands in the gaps; (5) tolerances $\delta_p,\delta_s$; (6) phase (linear?) \& admissible delay; (7) convert $\Omega=2\pi f/f_s$.
+\warn{Broadband noise inside the passband (and partly in transition bands) always remains: no filter separates it from the signal at the same frequency.}
+\sub{Ideal Filters}
+$|H|=1$ on passbands, $0$ on stopbands. Ideal LP, cutoff $\Omega_c$ (inverse DTFT):
+\eqc{\bx{h[n]=\frac{\sin(\Omega_cn)}{\pi n}\ (n\ne0),\quad h[0]=\frac{\Omega_c}{\pi}}}
+Even, $\ne0$ for infinitely many $n<0$ $\Rightarrow$ \textbf{non-causal} \& infinitely long $\Rightarrow$ not realizable; also not BIBO stable ($\sum|h|\sim\sum\frac1{|n|}=\infty$) although $|H|\le1$. Truncated, shifted part = FIR with transition band (W11). Every realizable filter has a transition band of nonzero width.
+\sub{Tolerance Specification (low-pass)}
+\eqc{\bx{1-\delta_p\le|H(\Omega)|\le1+\delta_p,\ 0\le\Omega\le\Omega_p}}
+\eqc{\bx{|H(\Omega)|\le\delta_s,\ \Omega_s\le\Omega\le\pi}}
+Transition band $\Omega_p<\Omega<\Omega_s$: \emph{no} requirement (cutoff $\Omega_c$: $|H|=1/\sqrt2=-3$\,dB, a point inside it). Band edges belong to the bands. Each pass/stopband has its own edges \& tolerances. Wider transition band = easier filter, shorter delay. Gain $G$ on a band: $G(1-\delta)\le|H|\le G(1+\delta)$ (equalizer, hearing aid).
+Place edges: $\Omega_p\ge$ highest kept component, $\Omega_s\le$ lowest removed one; $\delta_s=$ (allowed residual)/(amplitude).
+\textbf{dB:} $20\log_{10}|H|$ (\warn{not $10\log$}); $|H|=10^{\text{dB}/20}$. $\pm0.5$\,dB $=0.944..1.059$; $1.05=+0.42$, $0.95=-0.45$; $0.1=-20$, $0.01=-40$, $0.02=-34$\,dB; $\times4=+12$\,dB.
+\textbf{Series} $H=H_1H_2$: magnitudes \emph{multiply} (dB add), delays add. Pass$\cdot$pass: $(1{-}\delta_1)(1{-}\delta_2)..(1{+}\delta_1)(1{+}\delta_2)$; stop$\cdot$pass: $\delta_s(1+\delta_p)$.
+\textbf{Checking a filter:} check \emph{every} line (passband, stopband, phase, delay); evaluate $|H|$ over the whole band, \warn{not only at edges} ($|H|$ need not be monotonic: zeros, ripples).
+\sub{Phase \& Latency}
+$\cos\Omega n\mapsto|H|\cos(\Omega(n-d(\Omega)))$, \textbf{phase delay} \bx{d(\Omega)=-\angle H(\Omega)/\Omega} samples.
+\textbf{Linear phase} $\angle H=-\Omega d$: all frequencies delayed by the same $d$ $\Rightarrow$ shape kept, $y[n]=u[n{-}d]$ (if $|H|\approx1$). $H=e^{-j\Omega d}$: pure delay, $\tau=d/f_s$ s, $\angle H=-2\pi f\tau$. Nonlinear phase: components delayed differently $\Rightarrow$ shape distorted (even all-pass $|H|=1$). Symmetric FIR $h[k]=h[N{-}1{-}k]$: linear phase, $d=\frac{N-1}2$.
+\textbf{Delay budget:} $d\le T_{\max}f_s$; applies to the whole chain.
+\textbf{Zero phase} ($H$ real $\ge0$, $d=0$) needs $h[k]=h[-k]$: non-causal. A real-time (causal) filter other than a pure gain \emph{always} delays.
+\begin{tabularx}{\linewidth}{@{}lY@{}}
+real-time & causal, $d>0$ bounded (ECG alarm, hearing aid, control)\\
+offline & stored signal, non-causal allowed, zero phase $d=0$
+\end{tabularx}
+\textbf{Forward--backward filtering} (offline): filter with $H$, reverse, filter with $H$, reverse. Reverse: $x[-n]\leftrightarrow X^*(\Omega)$ (real $x$), so
+\eqc{\bx{G(\Omega)=H^*(\Omega)H(\Omega)=|H(\Omega)|^2},\ g[n]=\textstyle\sum_kh[k]h[k{+}n]}
+real $\ge0$: zero phase, no delay, $g$ even; magnitude squared $\Rightarrow$ tolerances $(1\pm\delta_p)^2$, $\delta_s^2$ (specs are for one pass). Output symmetric about a step.
+\sub{Beyond LTI: Median Filter}
+$y[n]=\mathrm{median}\{u[n{-}1],u[n],u[n{+}1]\}$: removes isolated outliers (average only spreads them: $\{2,50,2\}\to$ avg 18, median 2). Time-invariant, homogeneous, \emph{not additive} $\Rightarrow$ not LTI: no $h$, no $H(\Omega)$; can create new frequencies.
+\textbf{Design methods:} FIR: moving average, truncated ideal response (W11); IIR: pole-zero placement, analog prototype + bilinear transform (W12).
 \end{multicols*}
 \end{document}
