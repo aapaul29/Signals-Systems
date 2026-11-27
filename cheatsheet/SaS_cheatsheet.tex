@@ -45,7 +45,7 @@
 
 \DeclareMathSizes{6.5}{6.5}{4.7}{3.8}
 \begin{document}
-\fontsize{6.5}{7.3}\selectfont\raggedright
+\fontsize{6.5}{7.3}\selectfont\raggedright\setlength{\lineskip}{0.2pt}\setlength{\lineskiplimit}{0pt}
 \setlength{\abovedisplayskip}{0.6pt}\setlength{\belowdisplayskip}{0.6pt}
 \setlength{\abovedisplayshortskip}{0.3pt}\setlength{\belowdisplayshortskip}{0.3pt}
 \setlength{\jot}{0.2pt}
@@ -55,8 +55,18 @@
 % =====================================================================
 \sect{Math Toolbox}
 $\sum_{k\ge0}a^k=\frac1{1-a}\,(|a|{<}1)$, $\sum_{k=0}^{N-1}a^k=\frac{1-a^N}{1-a}$, $\sum_{k\ge0}ka^k=\frac{a}{(1-a)^2}$.
-$z=a{+}jb=re^{j\theta}$, $e^{j\theta}=\cos\theta+j\sin\theta$, $\cos\theta=\frac{e^{j\theta}+e^{-j\theta}}2$, $\sin\theta=\frac{e^{j\theta}-e^{-j\theta}}{2j}$, $\frac1z=\frac{\bar z}{|z|^2}$; $|z_1z_2|=|z_1||z_2|$, $\angle z_1z_2=\angle z_1{+}\angle z_2$, $\angle\frac{z_1}{z_2}=\angle z_1{-}\angle z_2$.
-\textbf{Angle} from $+$Re axis, ccw: $\angle1{=}0$, $\angle j{=}\frac\pi2$, $\angle({-}1){=}\pi$, $\angle(1{+}j){=}\frac\pi4$; 2nd quadrant ($a{<}0{<}b$): $\angle(a{+}jb)=\pi-\arctan\frac{b}{|a|}$. Real coeff.\ $\Rightarrow$ complex roots in conj.\ pairs.
+$z=a{+}jb=re^{j\theta}$, $e^{j\theta}=\cos\theta+j\sin\theta$, $\cos\theta=\frac{e^{j\theta}+e^{-j\theta}}2$, $\sin\theta=\frac{e^{j\theta}-e^{-j\theta}}{2j}$, $\frac1z=\frac{\bar z}{|z|^2}$, $|z|^2=z\bar z$, $\mathrm{Re}\,z=\frac{z+\bar z}2$. Real coeff.\ $\Rightarrow$ complex roots in conj.\ pairs.
+\sub{$|\cdot|$ \& $\angle$ of Complex Expressions}
+\textbf{Single number} $a{+}jb$: $|z|=\sqrt{a^2{+}b^2}$; $\angle$ from $+$Re axis, ccw, mod $2\pi$: $\angle(a{+}jb)=\arctan\frac ba$ ($a{>}0$), $\arctan\frac ba{+}\pi$ ($a{<}0$, i.e.\ 2nd/3rd quadrant). $\angle1{=}0$, $\angle j{=}\frac\pi2$, $\angle({-}j){=}{-}\frac\pi2$, $\angle({-}1){=}\pm\pi$, $\angle(1{+}j){=}\frac\pi4$. $|e^{j\theta}|=1$, $\angle e^{j\theta}=\theta$.
+\textbf{Products \& fractions} (factor by factor):
+\eqc{\bx{\Big|\frac{z_1z_2}{z_3z_4}\Big|=\frac{|z_1||z_2|}{|z_3||z_4|},\ \angle\frac{z_1z_2}{z_3z_4}=\angle z_1{+}\angle z_2{-}\angle z_3{-}\angle z_4}}
+$|z^n|=|z|^n$, $\angle z^n=n\angle z$; $|\bar z|=|z|$, $\angle\bar z=-\angle z$; $\angle\frac1z=-\angle z$. Real factor $c$: $|cz|=|c||z|$, $\angle cz=\angle z$ ($c{>}0$), $\angle z\pm\pi$ ($c{<}0$). Factor $j$: $+\frac\pi2$; $\frac1j=-j$: $-\frac\pi2$. $H(z)=K\frac{\prod(z-z_i)}{\prod(z-p_i)}$: $|H|=|K|\frac{\prod\text{dist.\ to zeros}}{\prod\text{dist.\ to poles}}$, $\angle H=\sum\angle(z{-}z_i)-\sum\angle(z{-}p_i)$ (${+}\pi$ if $K{<}0$).
+\textbf{Sums: no rule} \warn{$|z_1{+}z_2|\ne|z_1|{+}|z_2|$, $\angle(z_1{+}z_2)\ne\angle z_1{+}\angle z_2$}: first bring to $a{+}jb$ (or factor out). $|z_1{+}z_2|\le|z_1|{+}|z_2|$; $|z_1{\pm}z_2|^2=|z_1|^2{+}|z_2|^2\pm2\mathrm{Re}(z_1\bar z_2)$.
+$|1-ae^{-j\Omega}|^2=1-2a\cos\Omega+a^2$, $\angle(1-ae^{-j\Omega})=\arctan\frac{a\sin\Omega}{1-a\cos\Omega}$ ($a$ real, denominator $>0$).
+\textbf{Half-angle trick} (sum of two exponentials):
+\eqc{e^{j\alpha}{+}e^{j\beta}=2\cos\tfrac{\alpha-\beta}2e^{j\frac{\alpha+\beta}2},\ e^{j\alpha}{-}e^{j\beta}=2j\sin\tfrac{\alpha-\beta}2e^{j\frac{\alpha+\beta}2}}
+\textbf{Real amplitude form} $H=A(\Omega)e^{j\varphi(\Omega)}$, $A$ real: $|H|=|A|$, $\angle H=\varphi$ where $A{>}0$, $\varphi\pm\pi$ where $A{<}0$ (phase jumps by $\pi$ at sign changes / zeros of $A$). \warn{$|re^{j\theta}|=r$ only if $r\ge0$.}
+
 $\begin{bsmallmatrix}a&b\\c&d\end{bsmallmatrix}^{-1}{=}\frac{1}{ad-bc}\begin{bsmallmatrix}d&-b\\-c&a\end{bsmallmatrix}$, $\det(zI{-}A)=z^2-\mathrm{tr}A\,z+\det A$; triangular: eig.\ = diagonal.
 $z^2-2\alpha z+c=0$: $z=\alpha\pm\sqrt{\alpha^2-c}$; complex $\Rightarrow|z|=\sqrt c$.
 $1\pm e^{-j\Omega}=e^{-j\Omega/2}(e^{j\Omega/2}\pm e^{-j\Omega/2})$: $1{-}e^{-j\Omega}=2j\sin\frac\Omega2e^{-j\Omega/2}$, $1{+}e^{-j\Omega}=2\cos\frac\Omega2e^{-j\Omega/2}$.
