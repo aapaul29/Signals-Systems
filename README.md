@@ -46,6 +46,9 @@ Signals-Systems/
 ├── ex10/
 │   ├── 10d_coding.ipynb
 │   └── 10d_coding_solutions.ipynb
+├── ex11/
+│   ├── 11d_coding.ipynb
+│   └── 11d_coding_solutions.ipynb
 ├── cheatsheet/
 │   ├── SaS_cheatsheet.tex                # LaTeX source of the exam cheat sheet
 │   └── SaS_cheatsheet.pdf                # compiled cheat sheet
@@ -68,6 +71,7 @@ Each week gets its own `exNN/` folder with the same layout. The implementation n
 | 8 | [ex08](ex08/) | DFT and FFT: checking hand-computed DFTs with `np.fft`, reading the heart rate off the spectrum of a measured photoplethysmogram (BIDMC dataset), a simplified guitar tuner (optional): fundamental vs. strongest harmonic, bin spacing in cents, zero-padding for precise peak location and why it doesn't improve resolution |
 | 9 | [ex09](ex09/) | Short-time Fourier transform: an `stft` checked against the hand results, a simplified song identifier (spectrogram, fingerprints from pairs of peaks, matching by votes, the time-frequency trade-off of the window length $N_w$), heart rate during exercise from a wrist PPG spectrogram (optional): pedalling line vs. heartbeat, frequency-range restriction and tracking |
 | 10 | [ex10](ex10/) | Filter specification: checking filters against passband, stopband and delay bounds over the whole band with `signal.freqz`, choosing among three candidate filters for a drone controller, forward-backward (zero-phase) filtering with `signal.lfilter`, median vs. moving average on a signal with outliers (optional) |
+| 11 | [ex11](ex11/) | FIR filter design: truncating the ideal low-pass/high-pass impulse response and checking it against a specification (shortest length, overshoot that stays at about 9 %), two filters with the same magnitude but different phase, central vs. backward difference as differentiators (accuracy vs. noise gain $\sqrt{\sum h[k]^2}$), recursive moving average and its single-precision rounding error (optional), tapering with the Hann window (optional) |
 
 ## Cheat sheet
 
